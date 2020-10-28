@@ -1,0 +1,63 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2512
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c100000;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Coding report\
+\
+The main package \'91voiceLauncher\'92 is built under the project \'91javaProject\'92. There are totally three classes in this package(Figure.1), among which the class named \'91VoiceMain\'92 holds the main() method, and the class named \'91window\'92 and \'91playSound\'92 have all the attributes and methods which will be used in main() method. The following description will start from class \'91window\'92, then get into the class \'92playSound\'92, lastly end with the class \'91VoiceMain\'92.\
+\pard\pardeftab720\partightenfactor0
+\cf2 \expnd0\expndtw0\kerning0
+{{\NeXTGraphic page2image65013584.png \width4297 \height1480 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\pardeftab720\partightenfactor0
+\cf2 \
+Figure. 1\
+\
+1. The class named \'91window\'92\uc0\u8232 \
+Aim of this class is to create a visible window which can interface with and instruct people after launching the programme. Except for the codes to import necessary java packages, the whole class has been divided into several sub-methods. \uc0\u8232 \
+The first method is called mainContent()(Figure.2). It builds up a visible window on screen. From codes in line 39 to line 42, a window is labeled as \'93How Animal Talks\'94, and its size is 590 * 300. Line 40 indicates the way of exiting the programme, namely, if the window is closed, then the execution ends. From codes in line 45 to line 57, a functional button is added to \'91panel1\'92. To be more specific, first of all, an Actionlistener is built in order to catch status of the button. Then, layout and size of the button are set. Lastly, the button entitled with Actionlistener is added to \'91panel1\'92. Code in line 60 intents to give \'91panel1\'92 a background. Finally, the last step is to add \'91panel1' to this window and set the window as visible.\
+\pard\pardeftab720\partightenfactor0
+\cf2 {{\NeXTGraphic page3image65128688.png \width5737 \height4243 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\pardeftab720\partightenfactor0
+\cf2 \cb3  \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb1 Figure. 2\uc0\u8232 \
+The second method is called panelContent()(Figure.3). This method builds up all the contents of six panels. These panels will appear in turns according to the progress of programme. On every panel, there are two elements, so it is important to set the layout forehead. Codes in line 70 and line 71 decide that these two elements are overlay with each other. Codes from line 73 to line 75 decide features of \'91label2\'92 which is added to \'91panel2'. Then, line 78 to line 81 set the picture \'91picLabel\'92 which is the background of \'91label2\'92. Lastly, adding \'91label2\'92 and \'91picLabel' on top of \'91panel2\'92. Since the background picture will not change no matter what label is on it, only labels with different contents are created from line 85 to line 114.\uc0\u8232 {{\NeXTGraphic page4image65046352.png \width5818 \height6314 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\cb3  \
+\cb1 Figure. 3\
+\
+Methods left in this class all aim to change the previous panel to target panel(Figure.4). There are six panels in total, so it needs five methods to connects every two panels. The first one in this part is different from others in that it skips the code that is used to add contents to panel, because contents of \'91panel1\'92 has already been added by method mainContent(). \uc0\u8232 {{\NeXTGraphic page5image65066896.png \width6014 \height6227 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\cb3  \
+\cb1 Figure. 4\
+\
+2. The class named \'91playSound\'92(Figure.5)\
+\
+Aim of this class is to create a method which can play selected sound file. First of all, necessary packages are imported. Then, a method called sound() is created to play the sound of specific path. The playSound method used in sound() is further indicated by codes in line 20 to line 29. \uc0\u8232 {{\NeXTGraphic page6image65048224.png \width6345 \height4642 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\cb3  \
+\cb1 Figure. 5\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb3 3. The class named \'91VoiceMain\'92\uc0\u8232 \
+Aim of this main class is to generate a while-loop that can recognize what people speak to microphone repeatedly, show visible window as required and play sound if input speech matches word in words list. \uc0\u8232 \
+As first part of this class, new objects are initialised(line 13,14). A name list includes all the 36 animal names is created. Then, the programme starts by calling up the mainContent() method and panelContent() in class \'91window\'92(Figure.6).\
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb1 {{\NeXTGraphic page7image65156512.png \width7065 \height2734 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\pardeftab720\partightenfactor0
+\cf2 \cb3  \
+Figure. 6\uc0\u8232 \
+The second part is the core part that recognizes speech and performs accordingly(Figure.7). Codes from line 23 to line 26 hold the programme for a while until button of \'91panel1' is pressed. When the button is pressed, configuration object is created and set. To use the microphone as a source of input, a LiveSpeechRecognizer is created to pass all configuration. While loading is completed, code in line 40 changes \'91panel2\'92 to \'91panel3', guiding people to speak. It normally takes some time before the recognition starts. From line 43 to line 63, a while loop is used to catch all the speech that people speak. In line 44, panelContent() is called up again, otherwise the panel will not return to any panel that has previously appeared. Then, getHypothesis() is used to get the recognized word. The word is transferred into lower case and printed on the console. Continuously, a if-loop here checks if the recognized word is in \'91namelist\'92(line 51 to line 61). To make scripts more clear, an additional method checkWord() is created from line 75 to line 81(Figure.8). The underlying logic of the if-loop is that if the recognized word is in the namelist, print out "GOT THE WORD\'94, show panel5, and play a matching sound; if the word is not in namelist, print out "NO SUCH WORD\'94. After running for the first time, panel6 comes out to say \'93try again\'94, then the core part stars over when new speech is received. \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb1 {{\NeXTGraphic page8image65028928.png \width7615 \height6001 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\pardeftab720\partightenfactor0
+\cf2 \cb3  \
+Figure. 7\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb1 {{\NeXTGraphic page8image65032880.png \width9609 \height2072 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\pardeftab720\partightenfactor0
+\cf2 \cb3  \
+Figure. 8\uc0\u8232 \
+Discussion\
+The programme runs and plays matching sounds as expected, one word at a time. However, there are still limitations such as over-recognition, under-recognition, and wrong-recognition. For example, the programme recognizes a word that is not in the namelist as a namelist word. Alternatively, when people speak a word that is actually in the namelist, the programme fails to recognize it. In addition, it also happens that a certain word is wrongly recognized as another word, such as \'91dog\'92 is frequently recognized as \'91donkey\'92. There are various methods which can fix these problems to some degree, including optimize dictionary and model, or deeply train the models.}
